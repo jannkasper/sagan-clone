@@ -14,7 +14,7 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-//	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 //	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 //	implementation 'org.springframework.boot:spring-boot-starter-hateoas'
 //	implementation 'org.springframework.boot:spring-boot-starter-security'
@@ -23,6 +23,17 @@ dependencies {
 
 	// Thymeleaf is used as the template engine for serving HTML
 	implementation "org.springframework.boot:spring-boot-starter-thymeleaf"
+
+	// datasource and connection pool dependencies
+//	runtimeOnly 'mysql:mysql-connector-java'
+	runtimeOnly 'com.h2database:h2'
+
+	// for use in on-the-fly database setup and migrations
+	implementation 'org.flywaydb:flyway-core'
+//	implementation 'org.apache.httpcomponents:httpclient'
+//	implementation 'org.modelmapper:modelmapper:2.4.4'
+//	implementation 'org.jsoup:jsoup:1.13.1'
+//	implementation 'org.yaml:snakeyaml'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
