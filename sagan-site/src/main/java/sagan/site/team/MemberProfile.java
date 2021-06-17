@@ -187,6 +187,7 @@ public class MemberProfile {
     public boolean hasLanyrdUsername() {
         return !StringUtils.isEmpty(lanyrdUsername);
     }
+
     @JsonIgnore
     public Link getTwitterLink() {
         if (StringUtils.isEmpty(getTwitterUsername())) {
@@ -228,6 +229,13 @@ public class MemberProfile {
 
     public void setGeoLocation(GeoLocation geoLocation) {
         this.geoLocation = geoLocation;
+    }
+
+    @JsonIgnore
+    public TeamLocation getTeamLocation() {
+        if (geoLocation == null)
+            return null;
+        return new TeamLocation(name, geoLocation.getLatitude(), geoLocation.getLongitude(), getId());
     }
 
     public String getVideoEmbeds() {
