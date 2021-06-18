@@ -33,3 +33,40 @@ CREATE TABLE post (
   title            VARCHAR(255) NOT NULL,
   author_id        INTEGER                NOT NULL REFERENCES member_profile (id)
 );
+
+CREATE INDEX idx_category
+  ON post(category);
+CREATE INDEX idx_draft
+  ON post(draft);
+CREATE INDEX idx_publish_at
+  ON post(publish_at);
+
+CREATE TABLE project (
+    id                  VARCHAR(128) NOT NULL PRIMARY KEY,
+    name                VARCHAR(255),
+    repo_url            VARCHAR(255),
+    category            VARCHAR(255),
+    site_url            VARCHAR(255),
+    is_aggregator       BOOLEAN,
+    stack_overflow_tags VARCHAR(255)
+);
+
+CREATE TABLE project_release_list (
+    project_id     VARCHAR(128) NOT NULL,
+    repository_id  VARCHAR(128),
+    api_doc_url    VARCHAR(255),
+    artifact_id    VARCHAR(255),
+    group_id       VARCHAR(255),
+    is_current     BOOLEAN,
+    ref_doc_url    VARCHAR(255),
+    release_status INT,
+    version_name   VARCHAR(64),
+    PRIMARY KEY (project_id, version_name)
+);
+
+CREATE TABLE project_repository (
+    id                VARCHAR(255) NOT NULL PRIMARY KEY,
+    name              VARCHAR(128),
+    url               VARCHAR(255),
+    snapshots_enabled BOOLEAN
+);

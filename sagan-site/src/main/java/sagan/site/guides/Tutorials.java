@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
-//import sagan.site.projects.Project;
+import sagan.site.projects.Project;
 import sagan.site.renderer.GuideContent;
 import sagan.site.renderer.SaganRendererClient;
 
@@ -37,14 +37,14 @@ public class Tutorials implements GuidesRepository<Tutorial> {
 				.map(DefaultGuideHeader::new)
 				.toArray(DefaultGuideHeader[]::new);
 	}
-// TODO
-//	@Override
-//	@Cacheable(cacheNames = CACHE_TUTORIALS, key="#project.id")
-//	public GuideHeader[] findByProject(Project project) {
-//		return Arrays.stream(findAll())
-//				.filter(guide -> guide.getProjects().contains(project.getId()))
-//				.toArray(GuideHeader[]::new);
-//	}
+
+	@Override
+	@Cacheable(cacheNames = CACHE_TUTORIALS, key="#project.id")
+	public GuideHeader[] findByProject(Project project) {
+		return Arrays.stream(findAll())
+				.filter(guide -> guide.getProjects().contains(project.getId()))
+				.toArray(GuideHeader[]::new);
+	}
 
 	@Override
 	public Optional<GuideHeader> findGuideHeaderByName(String name) {

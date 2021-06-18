@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
-//import sagan.site.projects.Project;
+import sagan.site.projects.Project;
 import sagan.site.renderer.GuideContent;
 import sagan.site.renderer.SaganRendererClient;
 
@@ -39,14 +39,14 @@ public class Topicals implements GuidesRepository<Topical> {
 				.map(DefaultGuideHeader::new)
 				.toArray(DefaultGuideHeader[]::new);
 	}
-// TODO
-//	@Override
-//	@Cacheable(cacheNames = CACHE_TOPICALS, key="#project.id")
-//	public GuideHeader[] findByProject(Project project) {
-//		return Arrays.stream(findAll())
-//				.filter(guide -> guide.getProjects().contains(project.getId()))
-//				.toArray(GuideHeader[]::new);
-//	}
+
+	@Override
+	@Cacheable(cacheNames = CACHE_TOPICALS, key="#project.id")
+	public GuideHeader[] findByProject(Project project) {
+		return Arrays.stream(findAll())
+				.filter(guide -> guide.getProjects().contains(project.getId()))
+				.toArray(GuideHeader[]::new);
+	}
 
 	@Override
 	public Optional<GuideHeader> findGuideHeaderByName(String name) {

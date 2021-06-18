@@ -1,6 +1,6 @@
 package sagan.site.guides;
 
-//import sagan.site.projects.Project;
+import sagan.site.projects.Project;
 
 import java.util.Optional;
 
@@ -11,6 +11,6 @@ public interface GuidesRepository<T extends Guide> {
 	Optional<GuideHeader> findGuideHeaderByName(String name);
 
 	T findByName(String name);
-// TODO
-//   	GuideHeader[] findByProject(Project project);
+
+   	GuideHeader[] findByProject(Project project);
 }

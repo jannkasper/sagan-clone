@@ -46,6 +46,146 @@ Links this week:
 '<p>Hi Spring fans!</p><p>There is a lot to cover this week, so let s get to it.</p>',
 'This Week in Spring - 2020-01-18',1);
 
+-- Projects
+
+INSERT INTO project
+(id, name, parent_project_id, repo_url, status, site_url, stack_overflow_tags,
+ tag_line, bootconfig_source, bootconfig_html, overview_source, overview_html,
+ featured, sort_order, image_path)
+VALUES ('spring-framework', 'Spring Framework', NULL, 'https://github.com/spring-projects/spring-framework', 'ACTIVE',
+        '/projects/spring-framework',
+        'spring,spring-mvc,spring-jms,spring-test,spring-webflux',
+        'Provides core support for dependency injection, transaction management, web apps, data access, messaging and more.',
+        '', '', '## Sample description\nThis is a sample description.',
+        '<h2>Sample description</h2><p>This is a sample description.</p>', FALSE, 2, '/images/projects/spring-framework.svg'),
+       ('spring-boot', 'Spring Boot', NULL, 'https://github.com/spring-projects/spring-boot', 'ACTIVE',
+        '/projects/spring-boot',
+        'spring-boot',
+        'Takes an opinionated view of building Spring applications and gets you up and running as quickly as possible.',
+        '', '', '## Sample description\nThis is a sample description.',
+        '<h2>Sample description</h2><p>This is a sample description.</p>', FALSE, 1, '/images/projects/spring-boot.svg'),
+       ('spring-data', 'Spring Data', NULL, 'https://github.com/spring-projects/spring-data', 'ACTIVE',
+        '/projects/spring-data',
+        'spring-data,spring-data-jpa,spring-data-mongodb,spring-data-rest,spring-data-elasticsearch,spring-data-redis',
+        'Spring Data’s mission is to provide a familiar and consistent, Spring-based programming model for data access while still retaining the special traits of the underlying data store.',
+        '', '', '## Sample description\nThis is a sample description.',
+        '<h2>Sample description</h2><p>This is a sample description.</p>', FALSE, 3, '/images/projects/spring-data.svg'),
+       ('spring-data-jpa', 'Spring Data JPA', 'spring-data', 'https://github.com/spring-projects/spring-data-jpa',
+        'ACTIVE', '/projects/spring-data-jpa',
+        'spring-data',
+        'Provides a familiar and consistent, Spring-based programming model for relational database access.',
+        'Add `spring-boot-starter-data-jpa` as a dependency.',
+        'Add <pre><code>spring-boot-starter-data-jpa</code></pre> as a dependency.',
+        '## Sample description\nThis is a sample description.',
+        '<h2>Sample description</h2><p>This is a sample description.</p>', FALSE, 255, '/images/projects/spring-data.svg'),
+       ('spring-data-elasticsearch', 'Spring Data Elasticsearch', 'spring-data',
+        'https://github.com/spring-projects/spring-data-elasticsearch', 'ACTIVE', '/projects/spring-data-elasticsearch',
+        'spring-data-elasticsearch',
+        'Provides a familiar and consistent, Spring-based programming model for Elasticsearch index access.',
+        'Add `spring-boot-starter-data-elasticsearch` as a dependency.',
+        'Add <pre><code>spring-boot-starter-data-elasticsearch</code></pre> as a dependency.',
+        '## Sample description\nThis is a sample description.',
+        '<h2>Sample description</h2><p>This is a sample description.</p>', FALSE, 255, '/images/projects/spring-data.svg'),
+       ('platform', 'Spring IO Platform', NULL, 'https://github.com/spring-io/platform', 'END_OF_LIFE',
+        'http://platform.spring.io/platform/', 'spring-io',
+        'Spring IO is a cohesive, versioned platform for building modern applications.', '', '',
+        'It is a modular, enterprise-grade distribution that delivers a curated set of dependencies while keeping developers in full control of deploying only the parts they need. Spring IO is 100% open source, lean, and modular.',
+        '<p>It is a modular, enterprise-grade distribution that delivers a curated set of dependencies while keeping developers in full control of deploying only the parts they need. Spring IO is 100% open source, lean, and modular.</p>',
+        FALSE, 255, ''),
+       ('spring-scala', 'Spring Scala', NULL, 'http://hub.darcs.net/psnively/spring-scala', 'COMMUNITY',
+        'http://hub.darcs.net/psnively/spring-scala', 'spring-scala',
+        'Brings the power and expressiveness of Scala together with the productivity and deep ecosystem of Spring.', '',
+        '',
+        '## Sample description\nThis is a sample description.',
+        '<h2>Sample description</h2><p>This is a sample description.</p>', FALSE, 255, ''),
+       ('spring-restdocs', 'Spring REST Docs', NULL, 'https://github.com/spring-projects/spring-restdocs', 'ACTIVE',
+        '/projects/spring-restdocs', 'spring-restdocs',
+        'Document RESTful services by combining hand-written documentation with auto-generated snippets produced with Spring MVC Test or REST Assured.',
+        '', '',
+        'Spring REST Docs helps you to document RESTful services.',
+        '<p>Spring REST Docs helps you to document RESTful services.</p>',
+        TRUE, 255, '/images/projects/spring-restdocs.png');
+
+-- Project releases
+
+INSERT INTO project_release
+(project_id, repository, api_doc_url, is_current, ref_doc_url, release_status, version)
+VALUES ('spring-boot', 'RELEASE', 'https://docs.spring.io/spring-boot/docs/{version}/api/', false,
+        'https://docs.spring.io/spring-boot/docs/{version}/reference/html/', 'GENERAL_AVAILABILITY', '2.1.14.RELEASE'),
+       ('spring-boot', 'SNAPSHOT', 'https://docs.spring.io/spring-boot/docs/{version}/api/', false,
+        'https://docs.spring.io/spring-boot/docs/{version}/reference/html/', 'SNAPSHOT', '2.1.15.BUILD-SNAPSHOT'),
+       ('spring-boot', 'RELEASE', 'https://docs.spring.io/spring-boot/docs/{version}/api/', false,
+        'https://docs.spring.io/spring-boot/docs/{version}/reference/html/', 'GENERAL_AVAILABILITY', '2.2.7.RELEASE'),
+       ('spring-boot', 'SNAPSHOT', 'https://docs.spring.io/spring-boot/docs/{version}/api/', false,
+        'https://docs.spring.io/spring-boot/docs/{version}/reference/html/', 'SNAPSHOT', '2.2.8.BUILD-SNAPSHOT'),
+       ('spring-boot', 'RELEASE', 'https://docs.spring.io/spring-boot/docs/{version}/api/', true,
+        'https://docs.spring.io/spring-boot/docs/{version}/reference/html/','GENERAL_AVAILABILITY', '2.3.0.RELEASE'),
+       ('spring-boot', 'SNAPSHOT', 'https://docs.spring.io/spring-boot/docs/{version}/api/', false,
+        'https://docs.spring.io/spring-boot/docs/{version}/reference/html/', 'SNAPSHOT', '2.3.1-SNAPSHOT'),
+       ('spring-boot', 'SNAPSHOT', 'https://docs.spring.io/spring-boot/docs/{version}/api/', false,
+        'https://docs.spring.io/spring-boot/docs/{version}/reference/html/', 'SNAPSHOT', '2.4.0-SNAPSHOT'),
+       ('spring-boot', 'MILESTONE', 'https://docs.spring.io/spring-boot/docs/{version}/api/', false,
+        'https://docs.spring.io/spring-boot/docs/{version}/reference/html/','PRERELEASE', '2.4.0.M1'),
+       ('platform', 'RELEASE', 'https://spring.io/projects/platform', true,
+        'https://docs.spring.io/platform/docs/{version}/reference/htmlsingle/', 'SNAPSHOT', 'Cairo-SR7');
+
+
+-- Project samples
+
+INSERT INTO project_sample (title, description, url, sort_order, project_id)
+VALUES ('Simple', 'Simple command line application',
+        'https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples/spring-boot-sample-simple', 0,
+        'spring-boot'),
+       ('Embedded Tomcat', 'It is a mountain kitty.',
+        'https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples/spring-boot-sample-tomcat', 1,
+        'spring-boot'),
+       ('batch', 'Define and run a batch job in a few lines of code',
+        'https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples/spring-boot-sample-batch', 2,
+        'spring-boot'),
+       ('Data JPA', 'Stores data using Spring Data JPA with Hibernate',
+        'https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples/spring-boot-sample-data-jpa', 3,
+        'spring-boot'),
+       ('Integration', 'Integration application built using Spring Integration and its Java DSL',
+        'https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples/spring-boot-sample-integration',
+        4, 'spring-boot'),
+       ('more...', 'Collection of Spring Boot sample applications.',
+        'https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples', 5, 'spring-boot');
+
+-- Project groups
+INSERT INTO project_groups (name, label)
+VALUES ('microservices', 'Microservices'),
+       ('event-driven', 'Event Driven'),
+       ('cloud', 'Cloud'),
+       ('reactive', 'Reactive'),
+       ('web', 'Web Apps'),
+       ('serverless', 'Serverless'),
+       ('streams', 'Streams'),
+       ('batch', 'Batch');
+
+INSERT INTO project_groups_rel
+SELECT 'spring-boot', id FROM PROJECT_GROUPS WHERE name in ('microservices', 'event-driven', 'batch');
+INSERT INTO project_groups_rel
+SELECT 'spring-framework', id FROM PROJECT_GROUPS WHERE name in ('microservices', 'batch');
+INSERT INTO project_groups_rel
+SELECT 'spring-data', id FROM PROJECT_GROUPS WHERE name in ('microservices', 'batch');
+INSERT INTO project_groups_rel
+SELECT 'spring-data-jpa', id FROM PROJECT_GROUPS WHERE name in ('microservices', 'batch');
+INSERT INTO project_groups_rel
+SELECT 'spring-data-elasticsearch', id FROM PROJECT_GROUPS WHERE name in ('microservices', 'batch');
+INSERT INTO project_groups_rel
+SELECT 'platform', id FROM PROJECT_GROUPS WHERE name in ('microservices', 'batch');
+INSERT INTO project_groups_rel
+SELECT 'spring-restdocs', id FROM PROJECT_GROUPS WHERE name in ('microservices');
+
+-- Project generations
+INSERT INTO project_generation (project_id, name, initial_release_date, oss_support_enforced_end_date, oss_support_policy_end_date, commercial_support_enforced_end_date, commercial_support_policy_end_date)
+VALUES ('spring-boot', '1.5.x', '2017-01-01', '2019-08-01', '2018-01-01', null, '2019-09-01'),
+       ('spring-boot', '2.0.x', '2018-03-01', '2019-04-03', '2019-03-01', null, '2020-04-01'),
+       ('spring-boot', '2.1.x', '2018-10-01', null, '2019-10-01', null, '2021-04-01'),
+       ('spring-boot', '2.2.x', '2019-10-01', null, '2020-10-01', null, '2021-11-15'),
+       ('spring-boot', '2.3.x', '2020-05-15', null, '2021-05-15', null, null),
+       ('spring-boot', '2.4.x', '2020-11-15', null, '2021-11-15', null, null);
+
 -- Spring Tools
 
 INSERT INTO spring_tools_platform (id)
