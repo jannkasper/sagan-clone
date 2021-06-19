@@ -38,6 +38,9 @@ dependencies {
 //	implementation 'org.jsoup:jsoup:1.13.1'
 //	implementation 'org.yaml:snakeyaml'
 
+	// for XML manipulation
+	implementation 'org.xmlbeam:xmlprojector:1.4.20'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 }
