@@ -18,7 +18,7 @@ dependencies {
 //	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 	implementation 'org.springframework.boot:spring-boot-starter-hateoas'
 //	implementation 'org.springframework.boot:spring-boot-starter-security'
-//	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
 	// Thymeleaf is used as the template engine for serving HTML
@@ -31,7 +31,7 @@ dependencies {
 	// for use in on-the-fly database setup and migrations
 	implementation 'org.flywaydb:flyway-core'
 //	implementation 'org.apache.httpcomponents:httpclient'
-//	implementation 'org.modelmapper:modelmapper:2.4.4'
+	implementation 'org.modelmapper:modelmapper:2.4.4'
 //	implementation 'org.jsoup:jsoup:1.13.1'
 //	implementation 'org.yaml:snakeyaml'
 
