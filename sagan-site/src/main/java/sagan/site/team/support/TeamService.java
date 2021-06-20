@@ -2,6 +2,7 @@ package sagan.site.team.support;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import sagan.site.team.MemberProfile;
@@ -69,19 +70,19 @@ public class TeamService {
     }
 
 
-//    public MemberProfile createOrUpdateMemberProfile(Long githubId, OAuth2User oAuth2User) {
-//        MemberProfile profile = teamRepository.findByGithubId(githubId).orElseGet(() -> {
-//            MemberProfile newProfile = new MemberProfile();
-//            newProfile.setGithubId(githubId);
-//            newProfile.setHidden(true);
-//            return newProfile;
-//        });
-//        profile.setUsername(oAuth2User.getAttribute("login"));
-//        profile.setGithubUsername(oAuth2User.getAttribute("login"));
-//        profile.setName(oAuth2User.getAttribute("name"));
-//        profile.setAvatarUrl(oAuth2User.getAttribute("avatar_url"));
-//        return this.teamRepository.save(profile);
-//    }
+    public MemberProfile createOrUpdateMemberProfile(Long githubId, OAuth2User oAuth2User) {
+        MemberProfile profile = teamRepository.findByGithubId(githubId).orElseGet(() -> {
+            MemberProfile newProfile = new MemberProfile();
+            newProfile.setGithubId(githubId);
+            newProfile.setHidden(true);
+            return newProfile;
+        });
+        profile.setUsername(oAuth2User.getAttribute("login"));
+        profile.setGithubUsername(oAuth2User.getAttribute("login"));
+        profile.setName(oAuth2User.getAttribute("name"));
+        profile.setAvatarUrl(oAuth2User.getAttribute("avatar_url"));
+        return this.teamRepository.save(profile);
+    }
 
     public void showOnlyTeamMembersWithIds(List<Long> userIds) {
         this.teamRepository.hideTeamMembersNotInIds(userIds);
