@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * /blog, /team and /projects subsections are handled by their respective controllers.
  *
  * @see sagan.site.blog.admin.BlogAdminController
- * @see sagan.site.team.admin.TeamAdminController
+ * @see sagan.site.team.support.TeamAdminController
  * @see sagan.site.projects.admin.ProjectAdminController
  */
 @Controller
