@@ -26,6 +26,9 @@ dependencies {
 	// for use in generating blog atom feeds
 	implementation 'com.rometools:rome:1.15.0'
 
+	// for use in serving redirects; see urlrewrite.xml
+	implementation 'org.tuckey:urlrewritefilter:4.0.4'
+
 	// Thymeleaf is used as the template engine for serving HTML
 	implementation "org.springframework.boot:spring-boot-starter-thymeleaf"
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
