@@ -40,7 +40,7 @@ dependencies {
 	implementation 'org.flywaydb:flyway-core'
 //	implementation 'org.apache.httpcomponents:httpclient'
 	implementation 'org.modelmapper:modelmapper:2.4.4'
-//	implementation 'org.jsoup:jsoup:1.13.1'
+	implementation 'org.jsoup:jsoup:1.13.1'
 //	implementation 'org.yaml:snakeyaml'
 
 	// for XML manipulation

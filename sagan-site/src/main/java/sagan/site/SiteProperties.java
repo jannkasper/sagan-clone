@@ -11,6 +11,8 @@ public class SiteProperties {
 
     private final GitHub github = new GitHub();
 
+    private final Disqus disqus = new Disqus();
+
 
     public Events getEvents() {
         return this.events;
@@ -22,6 +24,10 @@ public class SiteProperties {
 
     public GitHub getGithub() {
         return github;
+    }
+
+    public Disqus getDisqus() {
+        return disqus;
     }
 
     public static class Events {
@@ -97,6 +103,22 @@ public class SiteProperties {
 
         public void setWebhookToken(String webhookToken) {
             this.webhookToken = webhookToken;
+        }
+    }
+
+    public static final class Disqus {
+
+        /**
+         * Disqus.com subdomain to get the integration script from.
+         */
+        private String shortName = "spring-io-localhost";
+
+        public String getShortName() {
+            return this.shortName;
+        }
+
+        public void setShortName(String shortName) {
+            this.shortName = shortName;
         }
     }
 }
