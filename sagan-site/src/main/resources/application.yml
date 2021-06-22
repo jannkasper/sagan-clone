@@ -1,8 +1,21 @@
 spring:
   datasource:
     url: jdbc:h2:mem:sagan;MODE=MySQL;DATABASE_TO_LOWER=TRUE;DB_CLOSE_ON_EXIT=FALSE
-    flyway:
-      locations: classpath:/db/migration, classpath:/db/dev
+  flyway:
+    locations: classpath:/db/migration, classpath:/db/dev
+  devtools:
+    restart:
+      additional_paths:
+        - ../sagan-client/build/dist/
+      additional_exclude: "css/**,fonts/**,images/**,js/**,icon*.png,manifest.json,robots.txt"
+  web:
+    resources:
+      static-locations:
+        - file:../sagan-client/build/dist/
+        - file:./sagan-client/build/dist/
+        - file:./build/asciidoc/
+        - file:./sagan-site/build/asciidoc/
+        - classpath:/public/
   security:
     oauth2:
       client:

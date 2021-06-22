@@ -1,7 +1,7 @@
 plugins {
+	id 'java'
 	id 'org.springframework.boot' version '2.5.1'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'java'
 }
 
 group = 'io.spring.sagan'
@@ -13,6 +13,8 @@ repositories {
 }
 
 dependencies {
+	implementation project(':sagan-client')
+
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 //	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
@@ -38,6 +40,8 @@ dependencies {
 	// datasource and connection pool dependencies
 //	runtimeOnly 'mysql:mysql-connector-java'
 	runtimeOnly 'com.h2database:h2'
+
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
 	// for use in on-the-fly database setup and migrations
 	implementation 'org.flywaydb:flyway-core'

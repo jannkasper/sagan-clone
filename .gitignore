@@ -41,7 +41,6 @@ out
 
 # Gradle
 .gradle
-gradle
 build
 /build
 
